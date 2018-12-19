@@ -226,8 +226,8 @@ open class XAxisRenderer: AxisRendererBase
             
             if viewPortHandler.isInBoundsX(position.x)
             {
-                let label = ("" != xAxis.valueFormatter?.stringForValue(Double(Int(xAxis.entries[i])), axis: xAxis)) ? (xAxis.valueFormatter?.stringForValue(Double(Int(xAxis.entries[i])), axis: xAxis) ?? "") : (xAxis.valueFormatter?.stringForValue(Double(Int(xAxis.entries[i]) - 1), axis: xAxis) ?? "") //vivek
-
+                //let label = ("" != xAxis.valueFormatter?.stringForValue(Double(Int(xAxis.entries[i])), axis: xAxis)) ? (xAxis.valueFormatter?.stringForValue(Double(Int(xAxis.entries[i])), axis: xAxis) ?? "") : (xAxis.valueFormatter?.stringForValue(Double(Int(xAxis.entries[i]) - 1), axis: xAxis) ?? "") //vivek
+                let label = ("" != xAxis.valueFormatter?.stringForValue(Double(Int(xAxis.entries[(i)])), axis: xAxis)) ? (xAxis.valueFormatter?.stringForValue(Double((Int(xAxis.entries[i])) == 1 ? 0 : Int(xAxis.entries[i])), axis: xAxis) ?? "") : (xAxis.valueFormatter?.stringForValue(Double(Int(xAxis.entries[i]) - 1), axis: xAxis) ?? "") //dineshc
                 let labelns = label as NSString
                 
                 if xAxis.isAvoidFirstLastClippingEnabled
